@@ -1,0 +1,46 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-ble-central": {
+            "PACKAGE_NAME": "tw.digcode.arluigobt"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "tw.digcode.arluigobt"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "tw.digcode.arluigobt"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "tw.digcode.arluigobt"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "tw.digcode.arluigobt"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "tw.digcode.arluigobt"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "tw.digcode.arluigobt"
+        },
+        "cordova-plugin-bluetooth-serial": {
+            "PACKAGE_NAME": "tw.digcode.arluigobt"
+        },
+        "com.phonegap.plugins.OrientationLock": {
+            "PACKAGE_NAME": "com.phonegap.arluigobt"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "com.phonegap.arluigobt"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "tw.digcode.arluigobt"
+        }
+    }
+}

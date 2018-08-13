@@ -1,0 +1,423 @@
+@import "./global-variables.less";
+
+@dark: rgb(0,65,127);
+@red: rgb(236,75,100);
+@blue: rgb(55,17,191);
+@green: rgb(32,178,170);
+@yellow: rgb(231,180,22);
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    position: relative;
+    font-family: '微軟正黑體', 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+     background-color: rgb(250,250,250);
+
+    .app {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .app-container {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            .app-header {
+                width: 100%;
+                height: 40%;
+                display: block;
+                position: relative;
+                background-size: 80%;
+                background-color: @dark;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-image: url(../img/digcode-logo.png);
+            }
+
+            .app-content {
+                width: 100%;
+                height: 60%;
+                position: relative;
+
+                .list-title {
+                    color: @dark;
+                    margin-top: 0;
+                    font-size: 20px;
+                    letter-spacing: 3px;
+                    padding-left: 20px;
+                }
+
+                .bluetooth-device-list, .unpaired-device-list {
+                    width: 100%;
+                    min-height: 50%;
+                    position: relative;
+                    padding-top: 16px;
+                    padding-bottom: 25px;
+                    border-bottom: 1px solid #DDD;
+
+                    .device-list {
+                        padding-left: 20px;
+
+                        li {
+                            list-style: none;
+                            padding-left: 55px;
+                            line-height: 30px;
+                            margin-top: 5px;
+                            background-size: 40px;
+                            background-position: 0px 45%;
+                            background-repeat: no-repeat;
+
+                            .device-name {
+                                font-weight: bold;
+                            }
+
+                            .device-hint, .device-uuid {
+                                color: #A0A0A0;
+                                letter-spacing: 2px;
+                                font-weight: lighter;
+                                font-family: "微軟正黑體 Light";
+                            }
+
+                            .device-address {
+                                letter-spacing: 0px !important;
+                            }
+                        }
+                    }
+                }
+
+                .bluetooth-device-list {
+                    .device-list {
+                        li {
+                            background-image: url(../img/device.png);
+                        }
+                    }
+                }
+
+                .unpaired-device-list {
+                    .device-list {
+                        li {
+                            background-image: url(../img/unpaired.png);
+                        }
+                    }
+                }
+            }
+        }
+
+        .mode-container {
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: fixed;
+            background-color: rgba(0,0,0,0.5);
+
+            .mode-list {
+                top: 50%;
+                left: 50%;
+                width: 280px;
+                height: 340px;
+                border-radius: 5px;
+                position: relative;
+                box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+                background-color: rgb(250,250,250);
+                .transform(translateX(-50%) translateY(-50%));
+
+                .mode-title {
+                    padding-top: 30px;
+                    margin-left: 20px;
+                    font-size: 22px;
+                    letter-spacing: 5px;
+                    font-weight: bold;
+                }
+
+                .mode-ul {
+                    width: 100%;
+                    padding: 0;
+
+                    @list-height: 60px;
+                    li {
+                        list-style: none;
+                        padding-left: 80px;
+                        font-size: 15px;
+                        letter-spacing: 2px;
+                        height: @list-height;
+                        line-height: @list-height; 
+                        background-position: 30px 50%;
+                        background-repeat: no-repeat;
+                        background-size: 30px;
+                    }
+
+                    .controller-mode {
+                        background-image: url(../img/controller.png);
+                    }
+
+                    .switch-mode {
+                        background-image: url(../img/switch.png);
+                    }
+
+                    .dimmer-mode {
+                        background-image: url(../img/dimmer.png);
+                    }
+
+                    .terminal-mode {
+                        background-image: url(../img/terminal.png);
+                    }
+                }
+            }
+        }
+
+        .controller-container {
+            top: 0;
+            left: 0;
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: fixed;
+            background-color: rgb(250,250,250);
+
+            @bar-height: 50px;
+            .title-bar {
+                top: 0;
+                z-index: 1;
+                width: 100%;
+                height: @bar-height;
+                color: #FFF;
+                font-size: 22px;
+                position: absolute;
+                line-height: @bar-height;
+                box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+                background-color: @dark;
+                background-position: 10px 40%;
+                background-repeat: no-repeat;
+                background-size: 25px;
+                background-image: url(../img/controller.png);
+
+                .mode {
+                    left: 50px;
+                    position: absolute;
+                    letter-spacing: 2px;
+                }
+
+                .setting {
+                    right: 0;
+                    width: @bar-height;
+                    height: @bar-height;
+                    position: absolute;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                    background-size: 25px;
+                    background-image: url(../img/setting.png);
+                }
+            }
+
+            .control-panel {
+                top: 0;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+
+                .panel {
+                    float: left;
+                    height: 100%;
+                    position: relative;
+                }
+
+                .left-panel {
+                    width: 36%;
+
+                    .button-group {
+                        top: 50%;
+                        width: 200px;
+                        height: 170px;
+                        margin: 0 auto;
+                        position: relative;
+                        .transform(translateY(-50%) translateY(20px));
+
+                        @buttn-color: #DDD;
+                        .button {
+                            width: 50px;
+                            height: 50px;
+                            margin: 10px;
+                            position: relative;
+                            background-color: @buttn-color;
+                        }
+
+                        .button-top {
+                            border-top-left-radius: 5px;
+                            border-top-right-radius: 5px;
+                            
+                            &:after {
+                                left: 0;
+                                bottom: -50px;
+                                width: 0;
+                                height: 0;
+                                content: "";
+                                position: absolute;
+                                border: 25px solid transparent;
+                                border-top: 25px solid @buttn-color;
+                            }
+                        }
+
+                        .button-top, .button-bottom {
+                            margin: 0 auto;
+                        }
+
+                        .button-left {
+                            float: left;
+                            border-top-left-radius: 5px;
+                            border-bottom-left-radius: 5px;
+
+                             &:after {
+                                top: 0;
+                                left: 50px;
+                                width: 0;
+                                height: 0;
+                                content: "";
+                                position: absolute;
+                                border: 25px solid transparent;
+                                border-left: 25px solid @buttn-color;
+                            }
+                        }
+
+                        .button-right {
+                            float: right;
+                            border-top-right-radius: 5px;
+                            border-bottom-right-radius: 5px;
+
+                             &:after {
+                                top: 0;
+                                right: 50px;
+                                width: 0;
+                                height: 0;
+                                content: "";
+                                position: absolute;
+                                border: 25px solid transparent;
+                                border-right: 25px solid @buttn-color;
+                            }
+                        }
+
+                        .button-bottom {
+                            top: 70px;
+                            border-bottom-left-radius: 5px;
+                            border-bottom-right-radius: 5px;
+
+                             &:after {
+                                top: -50px;
+                                left: 0;
+                                width: 0;
+                                height: 0;
+                                content: "";
+                                position: absolute;
+                                border: 25px solid transparent;
+                                border-bottom: 25px solid @buttn-color;
+                            }
+                        }
+                    }
+                }
+
+                .middle-panel {
+                    width: 28%;
+
+                    .button-group {
+                        bottom: 30px;
+                        width: 100%;
+                        position: absolute;
+                        
+                        .button {
+                            width: 65px;
+                            height: 30px;
+                            border-radius: 4px;
+                            line-height: 30px;
+                            font-size: 10px;
+                            color: #777;
+                            position: relative;
+                            text-align: center;
+                            background-color: #DDD;
+                        }
+
+                        .button-stop {
+                            left: 10px;
+                            float: left;
+                        }
+
+                        .button-pause {
+                            right: 10px;
+                            float: right;
+                        }
+                    }
+                }
+
+                .right-panel {
+                    width: 36%;
+
+                    .button-group {
+                        top: 50%;
+                        width: 200px;
+                        height: 170px;
+                        margin: 0 auto;
+                        position: relative;
+                        .transform(translateY(-50%) translateY(20px));
+
+                        @buttn-color: #DDD;
+                        .button {
+                            width: 60px;
+                            height: 60px;
+                            margin: 0px;
+                            text-align: center;
+                            line-height: 60px;
+                            border-radius: 60px;
+                            font-size: 50px;
+                            font-weight: bold;
+                            position: relative;
+                            background-color: @buttn-color;
+                        }
+
+                        .button1 {
+                            top: -5px;
+                            color: @red;
+                        }
+
+                        .button1, .button4 {
+                            margin: 0 auto;
+                        }
+
+                        .button2 {
+                            top: -10px;
+                            float: left;
+                            left: 15px;
+                            color: @blue;
+                        }
+
+                        .button3 {
+                            top: -10px;
+                            float: right;
+                            right: 15px;
+                            color: @green;
+                            font-weight: 300;
+                            font-size: 35px !important;
+                        }
+
+                        .button4 {
+                            top: 45px;
+                            color: @yellow;
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}
